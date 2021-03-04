@@ -23,17 +23,20 @@ class APIService {
             switch response.result {
             case .success(let value):
                 let data = JSON(value)
-                
+                for i in data {
+                    let id = i.1["id"].intValue
+                    let albumID = i.1["albumID"].intValue
+                    let title = i.1["title"].stringValue
+                    let url = i.1["url"].stringValue
+                    let thumbnailURL = i.1["thumbnailURL"].stringValue
+                    var array = [DataModel]()
+                    array.append(DataModel(albumID: albumID, id: id, title: title, url: url, thumbnailURL: thumbnailURL))
+                    
                 DispatchQueue.main.async {
-                    for i in data {
-                        let id = i.1["id"].intValue
-                        let albumID = i.1["albumID"].intValue
-                        let title = i.1["title"].stringValue
-                        let url = i.1["url"].stringValue
-                        let thumbnailURL = i.1["thumbnailURL"].stringValue
-                        self.dataArray.append(DataModel(albumID: albumID, id: id, title: title, url: url, thumbnailURL: thumbnailURL))
+                   
+                    self.dataArray = array
                         
-                        print(self.dataArray)
+//                        print(self.dataArray)
                     }
                 }
             case .failure(let error):

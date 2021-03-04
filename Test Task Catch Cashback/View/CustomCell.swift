@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CustomCell: UITableViewCell {
+    
+    @IBOutlet weak var albumImage: UIImageView!
+    @IBOutlet weak var albumTitle: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +23,13 @@ class CustomCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+
+    func refresh(_ data: DataModel) {
+//        albumId.text = "\(data.albumID)"
+        albumTitle.text =  data.title
+        albumImage.setImage(imageUrl: data.url)
+    }
+    
 
 }

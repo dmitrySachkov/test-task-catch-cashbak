@@ -8,22 +8,24 @@
 import UIKit
 
 class DetailVC: UIViewController {
+    
+    @IBOutlet weak var albumImage: UIImageView!
+    @IBOutlet weak var albumTitle: UILabel!
+    @IBOutlet weak var url: UITextView!
+    
+    var titleString = ""
+    var urlString = ""
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+        albumTitle.text = titleString
+        url.text = urlString
+        albumImage.setImage(imageUrl: urlString)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
