@@ -7,11 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+var data = [DataModel]()
+
+class MainVC: UIViewController {
+    
+    let apiService = APIService()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+ 
     }
 
 
